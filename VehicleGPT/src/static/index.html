@@ -3,100 +3,178 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>VehicleGPT | Vehicle insights</title>
+    <meta
+      name="description"
+      content="Explore your trip history and ask VehicleGPT about your vehicle's energy use."
+    />
+    <meta name="theme-color" content="#f5f7f4" />
+    <title>VehicleGPT — Your vehicle, understood</title>
     <link rel="stylesheet" href="/static/styles.css" />
     <script src="/static/app.js" defer></script>
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar">
-        <div class="brand"><span class="brand-mark">V</span> VehicleGPT</div>
+        <a class="brand" href="#overview" aria-label="VehicleGPT home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 14.5 6.7 9a2 2 0 0 1 1.9-1.4h6.8A2 2 0 0 1 17.3 9l1.7 5.5v3h-2v-1.7H7V17.5H5v-3Z" />
+              <path d="M7 12.5h10M8 15h.01M16 15h.01" />
+            </svg>
+          </span>
+          <span>vehicle<span class="brand-light">gpt</span></span>
+        </a>
 
         <p class="nav-label">WORKSPACE</p>
-        <nav>
-          <a class="nav-item active" href="#">Overview</a>
-          <a class="nav-item" href="#">Ask VehicleGPT</a>
-          <a class="nav-item" href="#">Trip history</a>
-          <a class="nav-item" href="#">Events</a>
+        <nav aria-label="Main navigation">
+          <a class="nav-item active" href="#overview">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="7" rx="1.5" /><rect x="14" y="4" width="6" height="4" rx="1.5" /><rect x="14" y="11" width="6" height="9" rx="1.5" /><rect x="4" y="14" width="6" height="6" rx="1.5" /></svg>
+            Overview
+          </a>
+          <a class="nav-item" href="#assistant">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.9L4 20l3.8-.7A8.5 8.5 0 1 0 12 3.5Z" /><path d="M8.5 12h.01M12 12h.01M15.5 12h.01" /></svg>
+            Ask VehicleGPT
+          </a>
+          <a class="nav-item" href="#data">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V9m7 10V5m7 14v-7" /><path d="M3 19.5h18" /></svg>
+            Your data
+          </a>
         </nav>
 
         <div class="sidebar-bottom">
-          <span class="status-dot"></span> Local demo · data stays here
+          <span class="status-dot"></span>
+          <span><strong>Private by design</strong><small>Local demo · data stays here</small></span>
         </div>
       </aside>
 
-      <main class="main-content">
+      <main class="main-content" id="overview">
         <header class="topbar">
-          <span>Vehicle insights</span>
-          <span class="offline-badge">● Offline mode</span>
+          <div class="breadcrumb"><span>Workspace</span><span aria-hidden="true">/</span><strong>Overview</strong></div>
+          <div class="topbar-status"><span class="status-dot"></span> Local demo</div>
         </header>
 
         <section class="welcome">
-          <p class="eyebrow">YOUR VEHICLE, EXPLAINED</p>
-          <h1>Understand what your car has recorded.</h1>
-          <p>Ask about trips, energy use, range, or unusual changes.</p>
+          <div class="welcome-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> YOUR VEHICLE, UNDERSTOOD</p>
+            <h1>Every trip tells<br />you something.</h1>
+            <p class="welcome-description">
+              See the story behind your driving data. Ask a question and get an
+              answer grounded in your saved trips.
+            </p>
+            <a class="primary-link" href="#assistant">
+              Ask your vehicle
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" /></svg>
+            </a>
+          </div>
+          <div class="welcome-art" aria-hidden="true">
+            <div class="art-orbit orbit-one"></div>
+            <div class="art-orbit orbit-two"></div>
+            <div class="art-glow"></div>
+            <div class="art-label"><span class="status-dot"></span> TRIP DATA, MADE CLEAR</div>
+            <svg class="car-illustration" viewBox="0 0 380 160" fill="none">
+              <path class="car-shadow" d="M52 119h276" />
+              <path class="car-body" d="m66 105 13-38c3-9 10-15 20-17l45-9 30-25c8-7 18-11 29-11h48c13 0 24 6 31 16l29 42 21 9c8 3 13 10 13 19v13c0 8-7 15-15 15h-9a31 31 0 0 0-61 0h-91a31 31 0 0 0-61 0H82c-9 0-16-7-16-14Z" />
+              <path class="car-window" d="m157 48 27-22c5-4 11-7 18-7h22v29h-67Zm76-29h18c10 0 18 4 24 12l18 25h-60V19Z" />
+              <path class="car-detail" d="M71 88h38m204-1 35 12M143 49h164" />
+              <circle class="wheel" cx="113" cy="117" r="22" /><circle class="wheel-core" cx="113" cy="117" r="9" />
+              <circle class="wheel" cx="300" cy="117" r="22" /><circle class="wheel-core" cx="300" cy="117" r="9" />
+            </svg>
+            <div class="art-caption"><span class="caption-icon">↗</span><span>Understand your drive<br /><strong>one question at a time</strong></span></div>
+          </div>
         </section>
 
         <section class="metrics" aria-label="Trip summary">
           <article class="metric-card">
-            <span>Trips in history</span>
+            <div class="metric-top"><span class="metric-icon trips-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17.5 6 11l2-4h8l2 4 2 6.5v2h-2v-2H6v2H4v-2Z" /><path d="M6 13h12M8 16h.01M16 16h.01" /></svg></span><span class="metric-trend">LOCAL DATA</span></div>
+            <span class="metric-label">Trips in history</span>
             <strong id="trip-count">—</strong>
             <small id="trip-period">Loading trip records…</small>
           </article>
           <article class="metric-card">
-            <span>History covered</span>
-            <strong id="weeks-covered">—</strong>
-            <small>From local trip records</small>
+            <div class="metric-top"><span class="metric-icon range-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18.5h16M6.5 15l4-4 3 2 5-6" /><path d="M15.5 7H19v3.5" /></svg></span><span class="metric-trend">TRIP TOTAL</span></div>
+            <span class="metric-label">Distance covered</span>
+            <strong><span id="distance-total">—</span></strong>
+            <small>Across your saved trip records</small>
           </article>
-          <article class="metric-card">
-            <span>Energy per 100 km</span>
-            <strong id="energy-use">—</strong>
-            <small id="distance-total">—</small>
+          <article class="metric-card metric-highlight">
+            <div class="metric-top"><span class="metric-icon energy-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 3 6 13h5l-.5 8L18 11h-5l.5-8Z" /></svg></span><span class="metric-trend">AVERAGE</span></div>
+            <span class="metric-label">Energy per 100 km</span>
+            <strong><span id="energy-use">—</span></strong>
+            <small>Calculated from your trip history</small>
           </article>
         </section>
 
-        <section class="assistant-card">
-          <div class="assistant-heading">
-            <div>
-              <p class="eyebrow">VEHICLEGPT ASSISTANT</p>
-              <h2>Ask a question</h2>
+        <section class="content-grid">
+          <section class="assistant-card" id="assistant">
+            <div class="assistant-heading">
+              <div class="assistant-title">
+                <span class="assistant-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.9L4 20l3.8-.7A8.5 8.5 0 1 0 12 3.5Z" /><path d="m12 7 .8 2.2L15 10l-2.2.8L12 13l-.8-2.2L9 10l2.2-.8L12 7Zm4.5 6 .5 1.2 1.2.5-1.2.5-.5 1.3-.5-1.3-1.2-.5 1.2-.5.5-1.2Z" /></svg>
+                </span>
+                <div>
+                  <p class="eyebrow">YOUR AI CO-PILOT</p>
+                  <h2>Ask VehicleGPT</h2>
+                </div>
+              </div>
+              <span class="local-tag"><span class="status-dot"></span> Runs locally</span>
             </div>
-            <span class="local-tag">● Runs on this computer</span>
-          </div>
 
-          <div id="conversation" class="conversation" aria-live="polite">
-            <div class="welcome-message">
-              <span class="assistant-icon">V</span>
-              <p>
-                Hi! I can compare the sample trips and explain changes in energy
-                use.
-              </p>
+            <div id="conversation" class="conversation" aria-live="polite" aria-relevant="additions text">
+              <div class="welcome-message">
+                <span class="mini-assistant-icon">V</span>
+                <p>
+                  Hey there! I can compare your recent and earlier energy use.
+                  What would you like to know?
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div class="suggestions">
-            <button class="suggestion" type="button">
-              Why has my driving range dropped?
-            </button>
-            <button class="suggestion" type="button">
-              Compare recent and earlier energy use
-            </button>
-          </div>
+            <p class="suggestion-label">TRY ASKING</p>
+            <div class="suggestions">
+              <button class="suggestion" type="button">Compare recent and earlier energy use <span aria-hidden="true">↗</span></button>
+              <button class="suggestion" type="button">Why has my driving range dropped? <span aria-hidden="true">↗</span></button>
+            </div>
 
-          <form id="question-form" class="question-form">
-            <input
-              id="question-input"
-              type="text"
-              placeholder="Ask about your vehicle data…"
-              maxlength="300"
-              required
-            />
-            <button type="submit">Ask <span aria-hidden="true">→</span></button>
-          </form>
-          <p class="privacy-note">
-            Answers should be supported by saved trip records.
-          </p>
+            <form id="question-form" class="question-form">
+              <label class="sr-only" for="question-input">Ask about your vehicle data</label>
+              <input
+                id="question-input"
+                type="text"
+                placeholder="Ask about your vehicle data…"
+                maxlength="300"
+                autocomplete="off"
+                required
+              />
+              <button type="submit"><span>Send question</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" /></svg></button>
+            </form>
+            <p class="privacy-note"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" /><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" /></svg> Answers are based on saved trip records. Your data stays on this computer.</p>
+          </section>
+
+          <aside class="data-card" id="data">
+            <div class="data-card-heading">
+              <div>
+                <p class="eyebrow">YOUR VEHICLE DATA</p>
+                <h2>Built on your trips</h2>
+              </div>
+              <span class="data-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6.5h16v13H4zM8 6.5V4h8v2.5M8 11h8m-8 4h5" /></svg></span>
+            </div>
+            <p class="data-description">VehicleGPT turns your saved trip records into clear, useful answers.</p>
+            <div class="coverage-block">
+              <div class="coverage-label"><span>History covered</span><strong id="weeks-covered">—</strong></div>
+              <small id="data-source">From local trip records</small>
+            </div>
+            <div class="data-divider"></div>
+            <div class="data-footnote">
+              <span class="privacy-shield"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5 16 5v4.5c0 3.8-2.6 6.5-6 8-3.4-1.5-6-4.2-6-8V5l6-2.5Z" /><path d="m7.5 9.8 1.7 1.7 3.5-3.7" /></svg></span>
+              <span><strong>Your data stays yours</strong><small>This demo uses local sample data. No vehicle connection required.</small></span>
+            </div>
+          </aside>
         </section>
+
+        <footer class="page-footer">
+          <span>VEHICLEGPT <span class="footer-separator">·</span> A local vehicle-insights demo</span>
+          <span>Insights from your trip records, not your vehicle controls.</span>
+        </footer>
       </main>
     </div>
   </body>

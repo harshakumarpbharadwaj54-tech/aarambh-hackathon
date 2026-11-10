@@ -68,9 +68,13 @@ async function loadTripSummary() {
     document.querySelector("#energy-use").textContent =
       `${data.energy_per_100_km} kWh`;
     document.querySelector("#distance-total").textContent =
-      `${data.distance_km} km total distance`;
+      `${data.distance_km} km`;
+    document.querySelector("#data-source").textContent =
+      `Records: ${data.period}`;
   } catch (error) {
     document.querySelector("#trip-period").textContent = error.message;
+    document.querySelector("#data-source").textContent =
+      "Trip records are currently unavailable";
   }
 }
 
