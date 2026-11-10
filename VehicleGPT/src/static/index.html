@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VehicleGPT | Vehicle insights</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand"><span class="brand-mark">V</span> VehicleGPT</div>
+
+        <p class="nav-label">WORKSPACE</p>
+        <nav>
+          <a class="nav-item active" href="#">Overview</a>
+          <a class="nav-item" href="#">Ask VehicleGPT</a>
+          <a class="nav-item" href="#">Trip history</a>
+          <a class="nav-item" href="#">Events</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <span class="status-dot"></span> Local demo · data stays here
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <span>Vehicle insights</span>
+          <span class="offline-badge">● Offline mode</span>
+        </header>
+
+        <section class="welcome">
+          <p class="eyebrow">YOUR VEHICLE, EXPLAINED</p>
+          <h1>Understand what your car has recorded.</h1>
+          <p>Ask about trips, energy use, range, or unusual changes.</p>
+        </section>
+
+        <section class="metrics" aria-label="Trip summary">
+          <article class="metric-card">
+            <span>Trips in history</span>
+            <strong id="trip-count">—</strong>
+            <small id="trip-period">Loading trip records…</small>
+          </article>
+          <article class="metric-card">
+            <span>History covered</span>
+            <strong id="weeks-covered">—</strong>
+            <small>From local trip records</small>
+          </article>
+          <article class="metric-card">
+            <span>Energy per 100 km</span>
+            <strong id="energy-use">—</strong>
+            <small id="distance-total">—</small>
+          </article>
+        </section>
+
+        <section class="assistant-card">
+          <div class="assistant-heading">
+            <div>
+              <p class="eyebrow">VEHICLEGPT ASSISTANT</p>
+              <h2>Ask a question</h2>
+            </div>
+            <span class="local-tag">● Runs on this computer</span>
+          </div>
+
+          <div id="conversation" class="conversation" aria-live="polite">
+            <div class="welcome-message">
+              <span class="assistant-icon">V</span>
+              <p>
+                Hi! I can compare the sample trips and explain changes in energy
+                use.
+              </p>
+            </div>
+          </div>
+
+          <div class="suggestions">
+            <button class="suggestion" type="button">
+              Why has my driving range dropped?
+            </button>
+            <button class="suggestion" type="button">
+              Compare recent and earlier energy use
+            </button>
+          </div>
+
+          <form id="question-form" class="question-form">
+            <input
+              id="question-input"
+              type="text"
+              placeholder="Ask about your vehicle data…"
+              maxlength="300"
+              required
+            />
+            <button type="submit">Ask <span aria-hidden="true">→</span></button>
+          </form>
+          <p class="privacy-note">
+            Answers should be supported by saved trip records.
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

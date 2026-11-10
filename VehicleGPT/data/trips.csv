@@ -1,0 +1,9 @@
+date,trip_id,trip_type,distance_km,energy_kwh,ambient_temp_c,battery_temp_c,event
+2026-10-04,T001,highway,80,12.0,22,24,none
+2026-10-08,T002,highway,95,14.3,21,25,none
+2026-10-12,T003,city,100,15.0,20,26,none
+2026-10-16,T004,highway,65,9.8,19,25,none
+2026-10-20,T005,city,45,9.0,13,23,none
+2026-10-24,T006,city,50,10.0,12,24,none
+2026-10-28,T007,city,40,8.0,11,24,none
+2026-10-31,T008,city,55,11.0,10,25,none
